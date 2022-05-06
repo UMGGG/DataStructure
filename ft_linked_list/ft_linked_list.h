@@ -1,13 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_linked_list.c                                   :+:      :+:    :+:   */
+/*   ft_linked_list.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/07 00:53:15 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/05/07 00:55:04 by jaeyjeon         ###   ########.fr       */
+/*   Created: 2022/05/07 00:53:12 by jaeyjeon          #+#    #+#             */
+/*   Updated: 2022/05/07 00:59:02 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_linked_list.h"
+#ifndef FT_LINKED_LIST_H
+# define FT_LINKED_LIST_H
+
+# include <stdlib.h>
+
+struct s_node{
+	s_node	*next;
+	int		data;
+};
+
+#endif
