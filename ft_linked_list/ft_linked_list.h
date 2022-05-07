@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 00:53:12 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/05/07 01:06:23 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/05/08 00:35:10 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,7 @@ typedef struct s_node{
 	s_node	*next;
 	int		data;
 }			t_node;
+
+void	ft_push(int data, t_node node);
 
 #endif

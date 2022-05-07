@@ -6,13 +6,13 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 00:53:15 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/05/07 01:15:55 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/05/08 00:35:12 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_linked_list.h"
 
-void	add_new_node(int data, t_node node)
+void	ft_push(int data, t_node node)
 {
 	t_node	*newnode;
 	t_node	*savenode;
@@ -27,4 +27,20 @@ void	add_new_node(int data, t_node node)
 		savenode = node.next;
 		node.next = newnode;
 		newnode->next = savenode;
+}
+
+t_node	ft_pop(t_node *node)
+{
+	t_node	*savenode;
+	t_node	*prevnode;
+
+	if (node->next != NULL)
+	{
+		savenode = node->next;
+		prevnode = node;
+		node = savenode;
+		free(prevnode);
+	}
+	else
+		free(node);
 }
