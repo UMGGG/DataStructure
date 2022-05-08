@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 00:53:12 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/05/08 00:35:10 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/05/08 16:28:43 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 # define FT_LINKED_LIST_H
 
 # include <stdlib.h>
+# include <stdio.h>
 
 typedef struct s_node{
-	s_node	*next;
-	int		data;
+	struct s_node	*next;
+	struct s_node	*prev;
+	int				data;
 }			t_node;
 
-void	ft_push(int data, t_node node);
+void	ft_push(t_node *newnode, t_node *head);
+t_node	*ft_create_node(int data);
 
 #endif
