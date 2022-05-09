@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 00:53:15 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/05/08 16:32:55 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/05/09 22:59:19 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,20 @@ t_node	*ft_create_node(int data)
 	return (newnode);
 }
 
+void	ft_delete(t_node *node)
+{
+	t_node	*nextnode;
+	t_node	*prevnode;
+
+	if (node == NULL)
+		return ;
+	nextnode = node->next;
+	prevnode = node->prev;
+	nextnode->prev = prevnode;
+	prevnode->next = nextnode;
+	free(node);
+}
+
 int	main()
 {
 	t_node	*head;
@@ -46,6 +60,7 @@ int	main()
 	ft_push(ft_create_node(10), head);
 	ft_push(ft_create_node(20), head);
 	ft_push(ft_create_node(30), head);
+	ft_delete(head);
 	while (currnode != NULL)
 	{
 		printf("%d ", currnode->data);
