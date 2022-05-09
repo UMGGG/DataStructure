@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 00:53:15 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/05/09 22:59:19 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/05/10 00:13:19 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_push(t_node *newnode, t_node *head)
 	savenode = head;
 	while (savenode->next != NULL)
 		savenode = savenode->next;
-	newnode->prev = savenode;
 	savenode->next = newnode;
 }
 
@@ -32,22 +31,25 @@ t_node	*ft_create_node(int data)
 		return (NULL);
 	newnode->data = data;
 	newnode->next = NULL;
-	newnode->prev = NULL;
 	return (newnode);
 }
 
-void	ft_delete(t_node *node)
+void	ft_pop(t_node *head)
 {
-	t_node	*nextnode;
-	t_node	*prevnode;
+	t_node	*savenode;
 
-	if (node == NULL)
+	savenode = head;
+	if (savenode == NULL)
 		return ;
-	nextnode = node->next;
-	prevnode = node->prev;
-	nextnode->prev = prevnode;
-	prevnode->next = nextnode;
-	free(node);
+	else if (savenode->next == NULL)
+		free(savenode);
+	else
+	{
+		while (savenode->next->next != NULL)
+			savenode = savenode->next;
+		free(savenode->next);
+		savenode->next = NULL;
+	}
 }
 
 int	main()
@@ -57,10 +59,7 @@ int	main()
 
 	head = ft_create_node(0);
 	currnode = head;
-	ft_push(ft_create_node(10), head);
-	ft_push(ft_create_node(20), head);
-	ft_push(ft_create_node(30), head);
-	ft_delete(head);
+	ft_pop(head);
 	while (currnode != NULL)
 	{
 		printf("%d ", currnode->data);
