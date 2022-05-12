@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 00:53:15 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/05/12 22:28:49 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/05/12 22:34:23 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,21 @@ void	ft_pop(t_list *list)
 	list->nodescount--;
 }
 
-t_list	*ft_print_list(t_list *list)
+void	ft_print_list(t_list *list)
 {
+	t_node	*currnode;
 
+	currnode = list->head;
+	while (currnode != NULL)
+	{
+		printf("%d ", currnode->data);
+		currnode = currnode->next;
+	}
 }
+
 int	main()
 {
 	t_list	*list;
-	t_node	*currnode;
 
 	list = ft_create_list(ft_create_node(0));
 	ft_push(ft_create_node(10), list);
@@ -81,5 +88,6 @@ int	main()
 	ft_push(ft_create_node(30), list);
 	ft_push(ft_create_node(40), list);
 	ft_pop(list);
+	ft_print_list(list);
 	return (0);
 }
