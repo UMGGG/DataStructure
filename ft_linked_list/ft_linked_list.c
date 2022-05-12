@@ -6,20 +6,21 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 00:53:15 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/05/11 22:53:43 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/05/12 22:21:28 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_linked_list.h"
 
-void	ft_push(t_node *newnode, t_node *head)
+void	ft_push(t_node *newnode, t_list	list)
 {
 	t_node	*savenode;
 
-	savenode = head;
+	savenode = list.head;
 	while (savenode->next != NULL)
 		savenode = savenode->next;
 	savenode->next = newnode;
+	list.nodescount++;
 }
 
 t_node	*ft_create_node(int data)
@@ -34,11 +35,11 @@ t_node	*ft_create_node(int data)
 	return (newnode);
 }
 
-void	ft_pop(t_node *head)
+void	ft_pop(t_list list)
 {
 	t_node	*savenode;
 
-	savenode = head;
+	savenode = list.head;
 	if (savenode == NULL)
 		return ;
 	else if (savenode->next == NULL)
@@ -50,16 +51,17 @@ void	ft_pop(t_node *head)
 		free(savenode->next);
 		savenode->next = NULL;
 	}
+	list.nodescount--;
 }
 
 int	main()
 {
-	t_node	*head;
+	t_list	list;
 	t_node	*currnode;
 
-	head = ft_create_node(0);
-	currnode = head;
-	ft_pop(head);
+	list.head = ft_create_node(0);
+	list.nodescount++;
+	currnode = list.head;
 	while (currnode != NULL)
 	{
 		printf("%d ", currnode->data);

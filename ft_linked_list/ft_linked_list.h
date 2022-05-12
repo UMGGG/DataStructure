@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 00:53:12 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/05/09 23:58:12 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/05/12 22:21:13 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,13 @@ typedef struct s_node{
 	int				data;
 }			t_node;
 
-void	ft_push(t_node *newnode, t_node *head);
-void	ft_pop(t_node *head);
+typedef struct s_list{
+	t_node	*head;
+	int		nodescount;
+}			t_list;
+
+void	ft_push(t_node *newnode, t_list	list);
+void	ft_pop(t_list list);
 t_node	*ft_create_node(int data);
 
 #endif
