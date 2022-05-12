@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 00:53:12 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/05/12 22:33:37 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/05/12 22:41:35 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_list{
 void	ft_push(t_node *newnode, t_list	*list);
 void	ft_pop(t_list *list);
 void	ft_print_list(t_list *list);
+void	ft_count_node_in_list(t_list *list);
 t_node	*ft_create_node(int data);
 t_list	*ft_create_list(t_node *node);
 
